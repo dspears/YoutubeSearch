@@ -1,5 +1,15 @@
 # Youtubesearch
 
+## Command History
+
+- npx ng generate component components/search-page
+- npx ng generate component components/search-control
+- npx ng generate component components/search-results-table
+- npx ng generate component components/search-result
+- ng add @angular/material
+- npx ng generate service services/google-api
+- npx ng generate service services/youtube-search
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
