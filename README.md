@@ -1,5 +1,11 @@
 # Youtubesearch App
 
+## NOTE on API Key
+
+To run this app you must edit the src/env.js file and paste in a valid API Key.
+
+The API Key must be authorized to access the YouTube Data API (see Google API Console).
+
 ## Creating the Project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
