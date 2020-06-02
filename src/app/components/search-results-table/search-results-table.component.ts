@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-results-table',
   templateUrl: './search-results-table.component.html',
   styleUrls: ['./search-results-table.component.scss']
 })
-export class SearchResultsTableComponent implements OnInit {
+export class SearchResultsTableComponent {
 
-  constructor() { }
+  @Input() searchResults: [];
+  displayedColumns = ['thumbnail', 'title', 'description', 'comments'];
 
-  ngOnInit(): void {
+  htmlDecode(input) {
+    const doc = new DOMParser().parseFromString(input, 'text/html');
+    return doc.documentElement.textContent;
   }
-
 }

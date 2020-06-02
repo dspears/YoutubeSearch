@@ -1,37 +1,41 @@
-# Youtubesearch
+# Youtubesearch App
 
-## Command History
+## Creating the Project
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+
+Added material:
+
+- npx ng add @angular/material
+
+Generated boilerplate components and services:
 
 - npx ng generate component components/search-page
 - npx ng generate component components/search-control
 - npx ng generate component components/search-results-table
-- npx ng generate component components/search-result
-- ng add @angular/material
 - npx ng generate service services/google-api
 - npx ng generate service services/youtube-search
+- npx ng generate service services/youtube-statistics
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+## Design Notes:
 
-## Development server
+I implemented three services:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- GoogleApi:  responsible for interfacing to YouTube Data API via Google's gapi.
+- YoutubeSearch:  performs keyword searches in sort order.
+- YoutubeStatistics:  collects stats on a set of videos.
 
-## Code scaffolding
+I chose to have YoutubeSearch depend on YoutubeStatistics so that results from the
+search api have the stats baked in.  Alternatively this dependency could have been
+removed and the SearchPageComponent could have called the YoutubeStatistics service
+to get the stats.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I also implemented three UI components:
 
-## Build
+- SearchPage:  Controls page layout and overall rendering, and calls the YoutubeSearch service API.
+- SearchControl:  Renders the search form and emits an onSearch event to kick off a search.
+- SearchResultsTable:  Render the table of results.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+An improvement might be to move the "Next Page" "Prev Page" button controls currently in
+SearchPage into a separate component, or possibly use the Material Design paging control. 
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

@@ -1,1 +1,25 @@
-<p>search-page works!</p>
+<div class="container">
+  <app-search-control (doSearch)="doSearch($event)"></app-search-control>
+
+  <div *ngIf="searchResults.length > 0" class="pager">
+    <button mat-raised-button (click)="prevPage()" [disabled]="!youtubeSearch.hasPrevPage()">Prev Page</button>
+    <button mat-raised-button (click)="nextPage()" [disabled]="!youtubeSearch.hasNextPage()">Next Page</button>
+  </div>
+
+  <div class="search-results">
+    <mat-spinner *ngIf="youtubeSearch.isLoading()"></mat-spinner>
+
+    <div *ngIf="isTableVisible()" class="mat-elevation-z8">
+      <app-search-results-table [searchResults]="searchResults"></app-search-results-table>
+    </div>
+
+    <div *ngIf="isLandingMessageVisible()" class="app-description">
+      <div *ngIf="youtubeSearch.getError()" class="error">
+        {{ youtubeSearch.getError() }}
+      </div>
+      <p>Use this app to search YouTube.</p>
+      <p>Enter any search string above, and enjoy paging through results.</p>
+      <p>Click the title of any video to open it in another tab.</p>
+    </div>
+  </div>
+</div>

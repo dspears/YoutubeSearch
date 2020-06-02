@@ -1,1 +1,18 @@
-<p>search-control works!</p>
+<form #searchForm="ngForm" fxLayout (ngSubmit)="onSearch(search.value)">
+  <mat-form-field>
+    <mat-label>Search YouTube</mat-label>
+    <input #search matInput type="text" placeholder="Enter search terms" value="" required>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" class="btn btn-success" [disabled]="!searchForm.form.valid">Search</button>
+
+  <mat-form-field>
+    <mat-label>Sort by</mat-label>
+    <mat-select [(value)]="sortBy" (selectionChange)="onSearch(search.value)">
+      <mat-option>None</mat-option>
+      <mat-option value="relevance">Relevance</mat-option>
+      <mat-option value="date">Date</mat-option>
+      <mat-option value="rating">Rating</mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
