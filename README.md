@@ -28,10 +28,10 @@ Generated boilerplate components and services:
 I implemented three services:
 
 - GoogleApi:  responsible for interfacing to YouTube Data API via Google's gapi.
-- YoutubeSearch:  performs keyword searches in sort order.
-- YoutubeStatistics:  collects stats on a set of videos.
+- YoutubeSearch:  performs keyword searches in sort order.  Depends on GoogleApi.
+- YoutubeStatistics:  collects stats on a set of videos.  Depends on GoogleApi.
 
-I chose to have YoutubeSearch depend on YoutubeStatistics so that results from the
+I also decided to have YoutubeSearch depend on YoutubeStatistics so that results from the
 search api have the stats baked in.  Alternatively this dependency could have been
 removed and the SearchPageComponent could have called the YoutubeStatistics service
 to get the stats.
@@ -44,4 +44,8 @@ I also implemented three UI components:
 
 An improvement might be to move the "Next Page" "Prev Page" button controls currently in
 SearchPage into a separate component, or possibly use the Material Design paging control. 
+
+## Testing
+
+Given a little more time my next step would be to add more meaningful and robust unit tests and some end to end tests.
 
