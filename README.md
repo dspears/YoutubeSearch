@@ -1,4 +1,6 @@
-# Youtubesearch App
+# YouTube Search App
+
+An Angular 9 application for searching YouTube
 
 ## NOTE on API Key
 
@@ -45,7 +47,4 @@ I also implemented three UI components:
 An improvement might be to move the "Next Page" "Prev Page" button controls currently in
 SearchPage into a separate component, or possibly use the Material Design paging control. 
 
-## Testing
-
-Given a little more time my next step would be to add more meaningful and robust unit tests and some end to end tests.
 
